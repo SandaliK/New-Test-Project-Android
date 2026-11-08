@@ -9,6 +9,7 @@ This project automates Android mobile app testing using WebDriverIO and Appium w
 - Android SDK - provides adb, emulator, platform tools
 - Appium - starts the mobile automation server
 - Appium UiAutomator2 driver - Android automation driver
+- Appium Inspector - inspects the running app's UI hierarchy and helps identify element attributes and locators for the tests
 - WebDriverIO - test runner and automation framework
 - Allure - test reporting
 - VS Code + AI-assisted workflow - used for project structure generation and iterative test prompting
@@ -27,6 +28,9 @@ The SDK provides Android command-line tools such as adb and emulator. These are 
 ### Appium
 Appium exposes the Android device to the automation framework and allows WebDriverIO to interact with app elements.
 
+### Appium Inspector
+Appium Inspector was used during test development to view the app's UI hierarchy and inspect element attributes, such as accessibility IDs and resource IDs. This helped identify suitable locators to use in the page objects. It is an inspection and locator-discovery tool; the test suite itself runs through WebDriverIO and Appium.
+
 ### UiAutomator2
 UiAutomator2 is the Android automation driver used by Appium for modern Android devices and emulators.
 
@@ -35,6 +39,16 @@ WebDriverIO handles the automation logic, test execution, waits, assertions, and
 
 ### Allure
 Allure is used to generate a readable HTML report and capture screenshots/video attachments on failed tests.
+
+## Why Appium with WebdriverIO
+
+Appium provides the cross-platform automation server, while WebdriverIO provides the JavaScript test runner, WebDriver client, assertions, and reporting integrations used by this project. This combination keeps the test code, page objects, configuration, and test data in one JavaScript-based toolchain.
+
+### Alternatives considered
+
+- **Appium with Python:** Appium supports Python clients too, and Python would also be a valid choice. WebdriverIO was selected here because this project uses JavaScript and benefits from its integrated runner, `expect-webdriverio` assertions, and Allure reporter. Choosing Python would mean maintaining a separate language and test-runner ecosystem; it is not a limitation of Appium.
+- **TypeScript with WebdriverIO:** TypeScript is not an alternative to Appium or WebdriverIO; WebdriverIO can run TypeScript tests. This project currently uses JavaScript to keep setup simple. TypeScript could be introduced later to add compile-time checks for page objects, test data, and configuration.
+- **Maestro:** Maestro is a capable option for readable, flow-oriented mobile UI tests. Its YAML-based flows can be reused, but it does not provide a conventional Page Object Model (POM) framework out of the box. This project already uses page objects to separate screen interactions from test scenarios, so WebdriverIO fits that structure. POM-style organization can still be built around Maestro if needed, but it is not its primary built-in model.
 
 ## Prerequisites
 
@@ -253,6 +267,14 @@ This project was developed with an AI-assisted workflow using Claude Code and it
 5. Updating the implementation to match the app behavior
 
 This approach accelerates setup while keeping human validation in the loop.
+
+## What I would do next with more time
+
+- Add a CI workflow that starts an Android emulator, runs the test suite, and publishes the Allure report and failure artifacts.
+- Expand coverage for important user journeys and edge cases, including app relaunch/state persistence, permission prompts, and device or network variations where supported.
+- Improve test reliability by reviewing selectors for stability, keeping tests independent, and tracking recurring flaky failures.
+- Create a core project where we can use common methods which can be called to any project and the core will be used as a external library
+- Review accessibility and localization behavior as part of the test strategy, and document supported Android versions and devices.
 
 ## Notes
 
