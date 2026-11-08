@@ -16,3 +16,4 @@ logs/
 .idea/
 .vscode/
 Thumbs.db
+*apk
