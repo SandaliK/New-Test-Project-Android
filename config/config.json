@@ -1,0 +1,14 @@
+{
+    "appium": {
+        "hostname": "127.0.0.1",
+        "port": 4723,
+        "path": "/"
+    },
+    "device": {
+        "name": "emulator-5554"
+    },
+    "app": {
+        "package": "com.wdiodemoapp",
+        "activity": ".MainActivity"
+    }
+}

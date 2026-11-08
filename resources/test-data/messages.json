@@ -1,0 +1,21 @@
+{
+    "login": {
+        "successTitle": "Success",
+        "successMessage": "You are logged in!"
+    },
+    "signUp": {
+        "successTitle": "Signed Up!",
+        "successMessage": "You successfully signed up!"
+    },
+    "validation": {
+        "invalidEmail": "Please enter a valid email address",
+        "shortPassword": "Please enter at least 8 characters",
+        "passwordMismatch": "Please enter the same password"
+    },
+    "forms": {
+        "typedText": "Hello",
+        "switchOn": "Click to turn the switch ON",
+        "switchOff": "Click to turn the switch OFF",
+        "activeButtonAlert": "This button is active"
+    }
+}

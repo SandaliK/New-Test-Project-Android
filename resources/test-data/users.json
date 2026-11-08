@@ -1,0 +1,15 @@
+{
+    "invalidEmail": {
+        "email": "abc",
+        "password": "Password123"
+    },
+    "shortPassword": {
+        "email": "test123@gmail.com",
+        "password": "abc123"
+    },
+    "passwordMismatch": {
+        "email": "test123@gmail.com",
+        "password": "Password123",
+        "repeatPassword": "Password124"
+    }
+}
